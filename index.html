@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Special Message</title>
+    <!-- Adding multiple romantic cursive fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&family=Parisienne&display=swap" rel="stylesheet">
+    <style>
+        /* Previous styles remain the same */
+        body {
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+            background:url('imagebcg.jpg') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .title {
+            font-family: 'Great Vibes', cursive;
+            color: #333;
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            font-weight: normal;
+        }
+
+        .valentine-text {
+            font-family: 'Parisienne', cursive;
+            color: #ff0000;
+            display: block;
+            font-size: 4.2rem;
+            margin-top: 0.5rem;
+        }
+
+        input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 18px;
+            font-family: 'Dancing Script', cursive;
+            outline: none;
+            margin-top: 2rem;
+        }
+
+        input::placeholder {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        button {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-family: 'Dancing Script', cursive;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background: #e60000;
+            transform: scale(1.05);
+        }
+
+        /* Rest of the styles remain the same */
+        .hearts-container {
+            position: relative;
+            height: 200px;
+            margin-bottom: 2rem;
+        }
+
+        .message-container {
+            display: none;
+        }
+
+        .message {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            margin: 1rem 0;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%; /* Optional: makes the image circular */
+            object-fit: cover; /* Ensures the image fits well */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Rest of the HTML remains the same -->
+    <div class="container">
+        <div id="loginForm" class="login-form">
+            <div class="hearts-container">
+                <!-- Hearts will be replaced with the image you provide -->
+            </div>
+            <h1 class="title">
+                Happy
+                <span class="valentine-text">Valentine's Day</span>
+            </h1>
+            <input type="text" id="recipientName" placeholder="Enter your name to see your special message" required>
+            <button onclick="showMessage()">View Message</button>
+        </div>
+
+        <div id="messageContainer" class="message-container">
+            <h2 id="nameDisplay"></h2>
+            <img src="peace2.jpg" alt="Profile Picture" class="profile-pic">
+            <p class="message">
+                Dearest <span id="nameDisplay2"></span>,<br><br>
+                Happy Valentine's, my favorite human!❤. 
+                I was going to write you a long, romantic message... but honestly, no real words can truly capture how amazing you are Kachunku.<br><br>
+                Each day with you is a good one but today is just an excuse to remind you how lucky i am to have you. Despite the fact that we barely see each other, you still manage to make me feel close to you in ways that matter.<br><br>
+                So, i'll just say this—you officially owe me a valentine's kiss 😏❤(or maybe a few😂).<br><br>
+                With all my love,<br>
+                Ahimbisibwe Daniel
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const name = document.getElementById('recipientName').value.trim();
+            if (!name) {
+                alert('Please enter a name');
+                return;
+            }
+
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('messageContainer').style.display = 'block';
+            document.querySelectorAll('#nameDisplay, #nameDisplay2').forEach(el => {
+                el.textContent = name;
+            });
+            document.getElementById('messageContainer').classList.add('fade-in');
+        }
+    </script>
+</body>
+</html>
