@@ -2,40 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="A special Valentine's Day message for someone special">
+    <meta name="keywords" content="Valentine's Day, love, special message">
+    <meta name="author" content="Ahimbisibwe Daniel">
+    
+    <link rel="icon" type="image/png" href="favicon.ico">
     <title>Valentine's Special Message</title>
-    <!-- Adding multiple romantic cursive fonts -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&family=Parisienne&display=swap" rel="stylesheet">
     <style>
-        /* Previous styles remain the same */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             margin: 0;
             font-family: 'Dancing Script', cursive;
-            background:url('imagebcg.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                        url('./imagebcg.jpg') no-repeat center center/cover;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 1rem;
         }
 
         .container {
-            padding: 2rem;
+            padding: 1rem;
+            width: 100%;
             max-width: 500px;
-            width: 90%;
             text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .login-form {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .title {
             font-family: 'Great Vibes', cursive;
             color: #333;
-            font-size: 3.5rem;
-            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
             font-weight: normal;
         }
@@ -44,22 +59,25 @@
             font-family: 'Parisienne', cursive;
             color: #ff0000;
             display: block;
-            font-size: 4.2rem;
-            margin-top: 0.5rem;
+            font-size: 3rem;
+            margin-top: 0.25rem;
         }
 
         input {
             padding: 12px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            font-size: 18px;
+            font-size: 16px;
             font-family: 'Dancing Script', cursive;
             outline: none;
-            margin-top: 2rem;
+            margin-top: 1rem;
+            width: 100%;
         }
 
         input::placeholder {
             font-family: 'Dancing Script', cursive;
+            color: #999;
+            font-size: 16px;
         }
 
         button {
@@ -68,61 +86,104 @@
             border: none;
             padding: 12px 24px;
             border-radius: 8px;
-            font-size: 18px;
+            font-size: 16px;
             font-family: 'Dancing Script', cursive;
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: 1rem;
+            width: 100%;
         }
 
         button:hover {
             background: #e60000;
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
-        /* Rest of the styles remain the same */
         .hearts-container {
             position: relative;
-            height: 200px;
-            margin-bottom: 2rem;
+            height: 100px;
+            margin-bottom: 1rem;
         }
 
         .message-container {
             display: none;
+            padding: 1rem;
         }
 
         .message {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             line-height: 1.6;
             margin: 1rem 0;
             color: #333;
+            text-align: left;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 1rem auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 3px solid #ff0000;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .fade-in {
-            animation: fadeIn 1.5s ease-in;
-        }
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%; /* Optional: makes the image circular */
-            object-fit: cover; /* Ensures the image fits well */
+            animation: fadeIn 1.5s ease-out;
         }
 
+        .img-error {
+            display: none;
+            color: #ff0000;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .container {
+                padding: 1rem;
+                border-radius: 15px;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .valentine-text {
+                font-size: 2.5rem;
+            }
+
+            .message {
+                font-size: 1.1rem;
+            }
+
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+
+            input, button {
+                font-size: 16px;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Rest of the HTML remains the same -->
     <div class="container">
         <div id="loginForm" class="login-form">
-            <div class="hearts-container">
-                <!-- Hearts will be replaced with the image you provide -->
-            </div>
+            <div class="hearts-container"></div>
             <h1 class="title">
                 Happy
                 <span class="valentine-text">Valentine's Day</span>
@@ -133,13 +194,17 @@
 
         <div id="messageContainer" class="message-container">
             <h2 id="nameDisplay"></h2>
-            <img src="peace2.jpg" alt="Profile Picture" class="profile-pic">
+            <img src="peace2.jpg" 
+                 alt="Profile Picture" 
+                 class="profile-pic"
+                 onerror="this.style.display='none';document.getElementById('imgError').style.display='block'">
+            <div id="imgError" class="img-error">Unable to load image</div>
             <p class="message">
                 Dearest <span id="nameDisplay2"></span>,<br><br>
-                Happy Valentine's, my favorite human!❤. 
+                Happy Valentine's, my favorite human!❤️. 
                 I was going to write you a long, romantic message... but honestly, no real words can truly capture how amazing you are Kachunku.<br><br>
                 Each day with you is a good one but today is just an excuse to remind you how lucky i am to have you. Despite the fact that we barely see each other, you still manage to make me feel close to you in ways that matter.<br><br>
-                So, i'll just say this—you officially owe me a valentine's kiss 😏❤(or maybe a few😂).<br><br>
+                So, i'll just say this—you officially owe me a valentine's kiss 😏❤️(or maybe a few😂).<br><br>
                 With all my love,<br>
                 Ahimbisibwe Daniel
             </p>
@@ -161,6 +226,14 @@
             });
             document.getElementById('messageContainer').classList.add('fade-in');
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const profilePic = document.querySelector('.profile-pic');
+            profilePic.addEventListener('error', function() {
+                this.style.display = 'none';
+                document.getElementById('imgError').style.display = 'block';
+            });
+        });
     </script>
 </body>
 </html>
